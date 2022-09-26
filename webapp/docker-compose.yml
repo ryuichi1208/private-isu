@@ -10,8 +10,7 @@ services:
       - app
 
   app:
-    # Go実装の場合は golang/ PHP実装の場合は php/
-    build: ruby/
+    build: golang/
     environment:
       ISUCONP_DB_HOST: mysql
       ISUCONP_DB_PORT: 3306
@@ -33,6 +32,7 @@ services:
 
   mysql:
     image: mysql/mysql-server:8.0
+    build: sql/
     environment:
       - "TZ=Asia/Tokyo"
       - "MYSQL_ROOT_HOST=%"
